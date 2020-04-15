@@ -80,7 +80,7 @@ func start(token, triggerWord string) {
 
 			for _, v := range messages {
 				if v != message.MessageID {
-					_, err := vk.MessagesEdit(api.Params{"peer_id": message.PeerID, "message_id": v, "message": "ᅠ"})
+					_, err := vk.MessagesEdit(api.Params{"peer_id": message.PeerID, "message_id": v, "message": "✅удаление..."})
 					if err == nil {
 						count++
 						log.Printf("Edited %v message\n", count)
@@ -92,8 +92,8 @@ func start(token, triggerWord string) {
 					}
 
 					// Задержка для корректного удаления
-					if len(messages) > 2 {
-						time.Sleep(time.Second / 2)
+					if len(messages) > 1 {
+						time.Sleep(time.Second / 1)
 					}
 				}
 			}
